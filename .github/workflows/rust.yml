@@ -57,7 +57,7 @@ jobs:
       - name: Bump version and push tag
         uses: undergroundwires/bump-everywhere@main
         with:
-          git-token: ${{ API_KEY }}
+          API_KEY: ${{ secrets.API_KEY }}
   release:
     name: Release
     needs: build
