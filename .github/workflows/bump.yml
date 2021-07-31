@@ -1,12 +1,11 @@
 name: Bump version
-
 on:
   push:
-    branches: 
+    branches:
     - main
 jobs:
   build:
-    name: build
+    name: BUILD
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -15,7 +14,7 @@ jobs:
         os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
     - uses: actions/checkout@v2
-    - name: Bump version and push tag
+    - name: Automatic bump version and push tag
       uses: TriPSs/conventional-changelog-action@0.2.18
       with:
         API_KEY: ${{ secrets.API_KEY }}
