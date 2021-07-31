@@ -13,10 +13,10 @@ jobs:
         rust: [stable, beta, nightly]
         os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
-    - uses: actions/checkout@v2
-    - name: Automatic bump version and push tag
-      uses: TriPSs/conventional-changelog-action@0.2.18
-      with:
-        API_KEY: ${{ secrets.API_KEY }}
-        git-message: 'chore(release): {version}'
-        tag-prefix:  'v'
+      - uses: actions/checkout@v2
+      - name: Automatic bump version and push tag
+        uses: TriPSs/conventional-changelog-action@0.2.18
+        with:
+          API_KEY: ${{ secrets.API_KEY }}
+          git-message: 'chore(release): {version}'
+          tag-prefix:  'v'
