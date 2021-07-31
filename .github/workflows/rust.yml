@@ -49,16 +49,12 @@ jobs:
         run: cargo package --allow-dirty
   bump:
     name: Bump
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        rust: [stable, beta, nightly]
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+    needs: build
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Automatic bump version and push tag
-        uses: maidsafe/rust-version-bump-branch-creator@0.2.18
+        uses: TriPSs/conventional-changelog-action@0.2.18
         with:
           API_KEY: ${{ secrets.API_KEY }}
           git-message: 'chore(release): {version}'
