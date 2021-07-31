@@ -16,7 +16,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Bump version and push tag
-      uses: TriPSs/conventional-changelog-action@main
+      uses: TriPSs/conventional-changelog-action@0.2.18
       with:
         API_KEY: ${{ secrets.API_KEY }}
+        git-message: 'chore(release): {version}'
         tag-prefix:  'v'
