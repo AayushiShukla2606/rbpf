@@ -54,10 +54,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Bump version and push tag
-        uses: maidsafe/rust-version-bump-branch-creator@main
         with:
-          API_KEY: ${{ secrets.API_KEY }}
+          fetch-depth: 0
+      - name: Bump version and push tag
+        uses: juliansangillo/tag-version@v1
+        with:
+          production-branch: master
   release:
     name: Release
     needs: build
