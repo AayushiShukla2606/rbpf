@@ -59,7 +59,7 @@ jobs:
       - name: Bump version and push tag
         uses: juliansangillo/tag-version@v1
         with:
-          production-branch: master
+          production-branch: main
   release:
     name: Release
     needs: build
