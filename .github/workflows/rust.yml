@@ -55,7 +55,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Bump version and push tag
-        uses: undergroundwires/bump-everywhere@main
+        uses: maidsafe/rust-version-bump-branch-creator@main
         with:
           API_KEY: ${{ secrets.API_KEY }}
   release:
